@@ -7,14 +7,14 @@ export default function Home() {
         Smart Tracker
       </h1>
       <p className="mt-4 max-w-md text-lg text-zinc-600">
-        Apnar task gulo organize korun, Kanban board-e track korun, ar kon
-        kaje koto somoy dilen dashboard-e dekhun.
+        Organize your tasks, track progress on a Kanban board, and see how
+        much time you spend on each task in your dashboard.
       </p>
 
       <ul className="mt-6 space-y-1 text-zinc-700">
-        <li>✅ Task toiri ar manage</li>
+        <li>✅ Create and manage tasks</li>
         <li>📋 Kanban board</li>
-        <li>⏱️ Time log ar dashboard</li>
+        <li>⏱️ Time logs and dashboard</li>
       </ul>
 
       <div className="mt-8 flex gap-3">
@@ -22,7 +22,7 @@ export default function Home() {
           href="/register"
           className="rounded-lg bg-black px-6 py-3 font-medium text-white"
         >
-          Get Started (Register)
+          Get Started
         </Link>
         <Link
           href="/login"
