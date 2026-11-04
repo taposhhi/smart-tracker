@@ -11,6 +11,10 @@ async function BoardContent() {
 
   const name = session.user.name ?? "User";
   const initial = name.charAt(0).toUpperCase();
+  const isAdmin = session.user.role === "ADMIN";
+
+  const btn =
+    "rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm font-medium transition hover:bg-gray-100 dark:border-gray-700 dark:bg-neutral-900 dark:hover:bg-neutral-800";
 
   return (
     <>
@@ -31,10 +35,12 @@ async function BoardContent() {
         </div>
 
         <div className="flex items-center gap-2">
-          <Link
-            href="/dashboard"
-            className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm font-medium transition hover:bg-gray-100 dark:border-gray-700 dark:bg-neutral-900 dark:hover:bg-neutral-800"
-          >
+          {isAdmin && (
+            <Link href="/admin/users" className={btn}>
+              Admin
+            </Link>
+          )}
+          <Link href="/dashboard" className={btn}>
             Dashboard
           </Link>
           <ThemeToggle />
@@ -44,9 +50,7 @@ async function BoardContent() {
               await signOut({ redirectTo: "/login" });
             }}
           >
-            <button className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm font-medium transition hover:bg-gray-100 dark:border-gray-700 dark:bg-neutral-900 dark:hover:bg-neutral-800">
-              Logout
-            </button>
+            <button className={btn}>Logout</button>
           </form>
         </div>
       </header>
